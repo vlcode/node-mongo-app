@@ -17,6 +17,8 @@ app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views') // where pages are from
 
+app.use(express.urlencoded({ extended: true })) // necessary for post methods (get data)
+
 app.use(todoRoutes)
 
 // with async it is possible to use await 

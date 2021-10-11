@@ -20,4 +20,13 @@ router.get('/create', (req, res) => {
     })
 })
 
+router.post('/create', async (req, res) => {
+    const todo = new Todo({
+        title: req.body.title
+    })
+
+    await todo.save() // method is async, send promise back -> await
+    res.redirect('/')
+})
+
 module.exports = router
