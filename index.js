@@ -8,6 +8,7 @@ const app = express()
 // with async it is possible to use await 
 async function start(){
     try {
+        // mongo db: mongodb.com, created free database
         await mongoose.connect('', { //connect database
             useNewUrlParser: true, 
             useFindAndModify: false
