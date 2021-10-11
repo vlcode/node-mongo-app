@@ -1,6 +1,7 @@
 // connect packages to vars 
 const express = require('express')
 const mongoose = require('mongoose')
+const path = require('path')
 const exphbs = require('express-handlebars')
 const todoRoutes = require('./routes/todos')
 
@@ -18,6 +19,7 @@ app.set('view engine', 'hbs')
 app.set('views', 'views') // where pages are from
 
 app.use(express.urlencoded({ extended: true })) // necessary for post methods (get data)
+app.use(express.static(path.join(__dirname, 'public'))) // path to static files .css, .js
 
 app.use(todoRoutes)
 
