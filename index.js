@@ -20,9 +20,10 @@ app.set('views', 'views') // where pages are from
 async function start(){
     try {
         // mongo db: mongodb.com, created free database
-        await mongoose.connect('', { //connect database
+        // better pass var to config, but it is tested project
+        await mongoose.connect('mongodb+srv://dbUser-mongo-node:dbUserPassword-mongo-node@cluster0.bjppd.mongodb.net/todos', { //connect database
             useNewUrlParser: true, 
-            useFindAndModify: false
+            useUnifiedTopology: false
         })
         app.listen(PORT, () => { // database is available at this moment 
             console.log('Server have been started')
