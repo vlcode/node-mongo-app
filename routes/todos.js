@@ -2,10 +2,14 @@ const {Router} = require('express')
 const Todo = require('../models/Todo')
 const router = Router()
 
-router.get('/', (req, res) => {
+// async because there are requests to db 
+router.get('/', async (req, res) => {
+    const todos = await Todo.find({})
+
     res.render('index', {
         title: 'Todos list',
-        isIndex: true
+        isIndex: true,
+        todos // array todo as a parameter (data from db)
     })
 })
 
